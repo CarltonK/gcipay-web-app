@@ -1,0 +1,15 @@
+version: '3.6' # Requires Docker engine 18.02.0+\
+
+services:
+  gcipay:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: gcipay_web
+    volumes:
+      - type: bind
+        source: .
+        target: /app/
+    network_mode: host
+    environment:
+      NODE_ENV: 'local'
